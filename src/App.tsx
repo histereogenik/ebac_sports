@@ -17,6 +17,7 @@ export type Produto = {
 
 function App() {
   const [produtos, setProdutos] = useState<Produto[]>([])
+  const [favoritos, setFavoritos] = useState<Produto[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/ebac_sports')
@@ -24,25 +25,12 @@ function App() {
       .then((res) => setProdutos(res))
   }, [])
 
-  function adicionarAoCarrinho() {
-    console.log('teste')
-  }
-
-  function favoritar() {
-    console.log('teste2')
-  }
-
   return (
     <Provider store={store}>
       <GlobalStyle />
       <div className="container">
         <Header />
-        <Produtos
-          produtos={produtos}
-          favoritos={produtos}
-          favoritar={favoritar}
-          adicionarAoCarrinho={adicionarAoCarrinho}
-        />
+        <Produtos produtos={produtos} favoritos={favoritos} />
       </div>
     </Provider>
   )
