@@ -9,3 +9,5 @@ export const store = configureStore({
     favoritos: favoritosReducer
   }
 })
+
+export type RootReducer = ReturnType<typeof store.getState>

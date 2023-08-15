@@ -6,6 +6,7 @@ import Produtos from './containers/Produtos'
 import { GlobalStyle } from './styles'
 
 import { store } from './store'
+import { Produto } from './components/Produto/styles'
 
 export type Produto = {
   id: number
@@ -23,6 +24,14 @@ function App() {
       .then((res) => setProdutos(res))
   }, [])
 
+  function adicionarAoCarrinho() {
+    console.log('teste')
+  }
+
+  function favoritar() {
+    console.log('teste2')
+  }
+
   return (
     <Provider store={store}>
       <GlobalStyle />
@@ -30,7 +39,7 @@ function App() {
         <Header />
         <Produtos
           produtos={produtos}
-          favoritos={favoritos}
+          favoritos={produtos}
           favoritar={favoritar}
           adicionarAoCarrinho={adicionarAoCarrinho}
         />
